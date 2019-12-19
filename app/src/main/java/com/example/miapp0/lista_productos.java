@@ -38,15 +38,15 @@ public class lista_productos extends AppCompatActivity {
          listaprod.add(new producto("https://images.unsplash.com/photo-1562967914-01efa7e87832?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1352&q=80",
                         "Pollo al limón", "S/. 18.00", "lo que sea"));
         listaprod.add(new producto("https://images.unsplash.com/photo-1562967915-6ba607ff7d05?ixlib=rb-1.2.1&auto=format&fit=crop&w=1352&q=80",
-                "Pollo al limón", "S/. 18.00", "lo que sea"));
+                "Camarones ensalsados", "S/. 18.00", "lo que sea"));
         listaprod.add(new producto("https://images.unsplash.com/photo-1541832676-9b763b0239ab?ixlib=rb-1.2.1&auto=format&fit=crop&w=921&q=80",
-                "Pollo al limón", "S/. 18.00", "lo que sea"));
+                "Dark chicken", "S/. 18.00", "lo que sea"));
         listaprod.add(new producto("https://images.unsplash.com/photo-1562967914-01efa7e87832?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1352&q=80",
                 "Pollo al limón", "S/. 18.00", "lo que sea"));
         listaprod.add(new producto("https://images.unsplash.com/photo-1562967915-6ba607ff7d05?ixlib=rb-1.2.1&auto=format&fit=crop&w=1352&q=80",
-                "Pollo al limón", "S/. 18.00", "lo que sea"));
+                "Camarones ensalsados", "S/. 18.00", "lo que sea"));
         listaprod.add(new producto("https://images.unsplash.com/photo-1541832676-9b763b0239ab?ixlib=rb-1.2.1&auto=format&fit=crop&w=921&q=80",
-                "Pollo al limón", "S/. 18.00", "lo que sea"));
+                "Dark chicken", "S/. 18.00", "lo que sea"));
 
 
         return listaprod;
