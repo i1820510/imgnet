@@ -17,16 +17,21 @@ public class lista_productos extends AppCompatActivity {
 
     private ListView listaProd;
     private adaptador_producto adaptador;
+    ArrayList<producto> items;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lista_productos);
-        queue = queueutils.getInstance(this.getApplicationContext());
+
 
         listaProd = (ListView) findViewById(R.id.lista_productos);
-        adaptador = new adaptador_producto(this, getArrayItems(), queue.getImageLoader());
+        queue = queueutils.getInstance(this.getApplicationContext());
+        items = new ArrayList<>();
+        producto.injectContactsFromCloud(queue, items, this);
+
+        adaptador = new adaptador_producto(this, /*getArrayItems()*/ items, queue.getImageLoader());
         listaProd.setAdapter(adaptador);
 
 
@@ -57,6 +62,11 @@ public class lista_productos extends AppCompatActivity {
 
         return listaprod;
 
+    }
+    public void refreshList(){
+        if ( adaptador!= null ) {
+            adaptador.notifyDataSetChanged();
+        }
     }
 
 }

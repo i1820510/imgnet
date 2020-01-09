@@ -25,16 +25,15 @@
              android:layout_height="wrap_content"/>
 
       </LinearLayout>
-       <Button
-          android:layout_width="wrap_content"
-          android:layout_height="30dp"
-          android:text="Añádeme"
-          android:textSize="8dp"
-           android:layout_margin="6dp"
-          android:background="@drawable/btn_pedir"/>
 
-
-
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:background="@drawable/btn_pedir"
+        android:layout_marginEnd="2dp"
+        android:layout_marginTop="10dp"
+        android:text="Añádeme"
+        android:textSize="8dp" />
 
 
 </LinearLayout>
