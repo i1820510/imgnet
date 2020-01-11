@@ -3,7 +3,10 @@ package com.example.miapp0;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.example.miapp0.adaptador.adaptador_producto;
 import com.example.miapp0.helpers.queueutils;
@@ -25,11 +28,33 @@ public class lista_productos extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lista_productos);
 
+        Button btnTipo = findViewById(R.id.btn_tipo);
+        Button btnTipo1 = findViewById(R.id.btn_tipo2);
+
+        btnTipo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(lista_productos.this, "Refrescar platos", Toast.LENGTH_SHORT).show();
+                items.clear();
+                producto.injectContactsFromCloud(queue, items, lista_productos.this,  "limenio");
+            }
+        });
+
+        btnTipo1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(lista_productos.this, "Refrescar platos", Toast.LENGTH_SHORT).show();
+                items.clear();
+                producto.injectContactsFromCloud(queue, items, lista_productos.this,  "huancaino");
+            }
+        });
+
+
 
         listaProd = (ListView) findViewById(R.id.lista_productos);
         queue = queueutils.getInstance(this.getApplicationContext());
         items = new ArrayList<>();
-        producto.injectContactsFromCloud(queue, items, this);
+        producto.injectContactsFromCloud(queue, items, this,  "huancaino");
 
         adaptador = new adaptador_producto(this, /*getArrayItems()*/ items, queue.getImageLoader());
         listaProd.setAdapter(adaptador);

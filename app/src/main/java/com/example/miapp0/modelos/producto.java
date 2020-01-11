@@ -44,20 +44,21 @@ public class producto {
 
     public static void injectContactsFromCloud(final queueutils.QueueObject o,
                                                final ArrayList<producto> producto,
-                                               final lista_productos _interface) {
-        String url = "http://fipo.equisd.com/api/users.json";
+                                               final lista_productos _interface,
+                                               final String tipo) {
+        String url = "https://green-jaborosa.glitch.me/productos.json?tipo=" + tipo;
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest
                 (Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
 
                     @Override
                     public void onResponse(JSONObject response) {
-                        if (response.has("objects")) {
+                        if (response.has("platos_final")) {
 
                             try {
-                                JSONArray list = response.getJSONArray("objects");
+                                JSONArray list = response.getJSONArray("platos_final");
                                 for (int i=0; i < list.length(); i++) {
                                     JSONObject o = list.getJSONObject(i);
-                                    producto.add(new producto(o.getString( "avatar"), o.getString("first_name"), o.getString("last_name"), o.getString("id")));
+                                    producto.add(new producto(o.getString( "url"), o.getString("name"), o.getString("description"), o.getString("id")));
                                 }
 
                             } catch (JSONException e) {
