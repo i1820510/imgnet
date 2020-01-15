@@ -46,16 +46,52 @@ public class producto {
                                                final ArrayList<producto> producto,
                                                final lista_productos _interface,
                                                final String tipo) {
-        String url = "https://green-jaborosa.glitch.me/productos.json?tipo=" + tipo;
+        String url = "https://horn-silverfish.glitch.me/productos.json?category=" + tipo;
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest
                 (Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
 
                     @Override
                     public void onResponse(JSONObject response) {
-                        if (response.has("platos_final")) {
+                        if (response.has("categoria")) {
 
                             try {
-                                JSONArray list = response.getJSONArray("platos_final");
+                                JSONArray list = response.getJSONArray("categoria");
+                                for (int i=0; i < list.length(); i++) {
+                                    JSONObject o = list.getJSONObject(i);
+                                    producto.add(new producto(o.getString( "imageURL"), o.getString("name"), o.getString("description"), o.getString("price")));
+                                }
+
+                            } catch (JSONException e) {
+                                e.printStackTrace();
+                            }
+                            _interface.refreshList(); // Esta función debemos implementarla
+                            // en nuestro activity
+                        }
+                    }
+                }, new Response.ErrorListener() {
+
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+
+                    }
+                });
+        o.addToRequestQueue(jsonObjectRequest);
+    }
+
+    public static void PostRequest(final queueutils.QueueObject o,
+                                               final ArrayList<producto> producto,
+                                               final lista_productos _interface,
+                                               final String tipo) {
+        String url = "https://green-jaborosa.glitch.me/productos.json";
+        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest
+                (Request.Method.POST, url, null, new Response.Listener<JSONObject>() {
+
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        if (response.has("categoria")) {
+
+                            try {
+                                JSONArray list = response.getJSONArray("categoria");
                                 for (int i=0; i < list.length(); i++) {
                                     JSONObject o = list.getJSONObject(i);
                                     producto.add(new producto(o.getString( "url"), o.getString("name"), o.getString("description"), o.getString("id")));
@@ -77,5 +113,6 @@ public class producto {
                 });
         o.addToRequestQueue(jsonObjectRequest);
     }
+
 
 }
