@@ -60,7 +60,7 @@
                 android:background="#FFE1A9"
                 android:layout_marginStart="12dp"
                 android:layout_marginTop="10dp"
-                android:text="lima"
+                android:text="Parrillas"
                 android:textSize="8dp" />
             <Button
                 android:id="@+id/btn_tipo2"
@@ -69,7 +69,7 @@
                 android:background="#FFE1A9"
                 android:layout_marginStart="12dp"
                 android:layout_marginTop="10dp"
-                android:text="Huancayo"
+                android:text="Bebidas"
                 android:state_pressed="true"
                 android:state_focused="true"
                 android:color="#ff0000ff"

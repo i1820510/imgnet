@@ -34,18 +34,18 @@ public class lista_productos extends AppCompatActivity {
         btnTipo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(lista_productos.this, "Refrescar platos", Toast.LENGTH_SHORT).show();
+                Toast.makeText(lista_productos.this, "Refrescar productos", Toast.LENGTH_SHORT).show();
                 items.clear();
-                producto.injectContactsFromCloud(queue, items, lista_productos.this,  "limenio");
+                producto.injectContactsFromCloud(queue, items, lista_productos.this,  "parrillas");
             }
         });
 
         btnTipo1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(lista_productos.this, "Refrescar platos", Toast.LENGTH_SHORT).show();
+                Toast.makeText(lista_productos.this, "Refrescar productos", Toast.LENGTH_SHORT).show();
                 items.clear();
-                producto.injectContactsFromCloud(queue, items, lista_productos.this,  "huancaino");
+                producto.injectContactsFromCloud(queue, items, lista_productos.this,  "bebidas");
             }
         });
 
@@ -54,7 +54,7 @@ public class lista_productos extends AppCompatActivity {
         listaProd = (ListView) findViewById(R.id.lista_productos);
         queue = queueutils.getInstance(this.getApplicationContext());
         items = new ArrayList<>();
-        producto.injectContactsFromCloud(queue, items, this,  "huancaino");
+        producto.injectContactsFromCloud(queue, items, this,  "parrillas");
 
         adaptador = new adaptador_producto(this, /*getArrayItems()*/ items, queue.getImageLoader());
         listaProd.setAdapter(adaptador);
